@@ -7,6 +7,7 @@ class LanguageModel extends BaseModel{
   final bool rtl;
 
 
+
   LanguageModel({
     this.code,
     this.name,

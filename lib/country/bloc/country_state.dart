@@ -34,8 +34,20 @@ class CountryAllAvailableState extends CountryBaseState{
 @immutable
 class CountrySearchState extends CountryBaseState{
   final List<CountryModel> countries;
+  final String keyword;
 
   CountrySearchState({
+    required this.countries,
+    required this.keyword,
+  });
+
+}
+
+@immutable
+class CountryFilterState extends CountryBaseState{
+  final List<CountryModel> countries;
+
+  CountryFilterState({
     required this.countries,
   });
 

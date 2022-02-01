@@ -22,3 +22,10 @@ class SearchCountryEvent extends CountryBaseEvent{
   final String keyword;
   SearchCountryEvent(this.keyword);
 }
+
+@immutable
+class ContactFilterEvent extends CountryBaseEvent{
+  final LanguageModel languageModel;
+  ContactFilterEvent(this.languageModel);
+}
+

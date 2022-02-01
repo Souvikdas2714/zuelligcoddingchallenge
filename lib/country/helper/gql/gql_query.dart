@@ -8,8 +8,8 @@ class GqlQuery{
   static GqlQuery get instance => _instance;
   
   String get country => """
-  query Countries(\$input: CountryFilterInput) {
-      countries(filter: \$input) {
+  query Countries(\$filter: CountryFilterInput) {
+      countries(filter: \$filter) {
         code
         name
         native

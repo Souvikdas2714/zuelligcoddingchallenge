@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zuelligcoddingchallenge/country/bloc/country_bloc.dart';
 import 'package:zuelligcoddingchallenge/country/helper/gql/helper_repository.dart';
-import 'package:zuelligcoddingchallenge/country/screen/contact_screen.dart';
+import 'package:zuelligcoddingchallenge/country/screen/country_screen.dart';
+import 'package:zuelligcoddingchallenge/route/route.dart';
 
 void main() {
   runApp(
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const  ContactScreen(),
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

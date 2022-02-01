@@ -14,7 +14,7 @@ class CountryModel extends BaseModel{
   final String? emojiU;
   final String? states;
   final String? capital;
-  final LanguageModel? language;
+  final List<LanguageModel> language;
 
   CountryModel({
     this.code,
@@ -26,7 +26,7 @@ class CountryModel extends BaseModel{
     this.emoji,
     this.emojiU,
     this.states,
-    this.language,
+    required this.language,
   });
   
   @override
@@ -36,6 +36,14 @@ class CountryModel extends BaseModel{
   
   @override
   factory CountryModel.fromMap(Map<String, dynamic> mp) {
+    List<LanguageModel> _language = [];
+    try{
+      for(var i in mp["languages"]){
+        _language.add(
+            LanguageModel.fromMap(i)
+        );
+      }
+    }catch(e){};
     return CountryModel(
       code: mp["code"],
       name: mp["name"],
@@ -46,7 +54,16 @@ class CountryModel extends BaseModel{
       emoji: mp["emoji"],
       emojiU: mp["emojiU"],
       states: mp["states"],
-      language : LanguageModel.fromMap(mp["languages"][0]),
+      language : _language,
     );
+  }
+  
+  bool languageMatch(LanguageModel lg){
+    for(LanguageModel i in language){
+      if(i.code == lg.code){
+        return true;
+      }
+    }
+    return false;
   }
 }
